@@ -35,9 +35,6 @@
           serviceImplementation="io.wisetime.idea.branch.WisetimeFrameTitleManager" overrides="true" />
 
         <projectService serviceImplementation="io.wisetime.idea.branch.BranchHelper" />
-        <applicationConfigurable parentId="appearance" instance="io.wisetime.idea.branch.settings.SettingsConfigurable"
-          id="io.wisetime.idea.branch.settings.SettingsConfigurable" displayName="Branch Name Settings" />
-        <applicationService serviceImplementation="io.wisetime.idea.branch.settings.SettingsState" />
     </extensions>
 
 </idea-plugin>

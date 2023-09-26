@@ -14,7 +14,7 @@ Branch in Window Title can be used to automate time allocation to issue tracking
 
 ### Keep Calm and Flow on
 
-I've got my brew next to me, my headphones on. Let's get some some work done. I check my Jira board and start on a new ticket. I read the issue description, looks easy enough for a change! First up I need to create a new branch. There's a Create Branch link right there in Jira. Let's click it.
+I've got my brew next to me, my headphones on. Let's get some work done. I check my Jira board and start on a new ticket. I read the issue description, looks easy enough for a change! First up I need to create a new branch. There's a Create Branch link right there in Jira. Let's click it.
 
 ![Jira Issue](doc/resources/jira-issue.png)
 
@@ -22,7 +22,7 @@ I select the relevant repository, and choose to branch from master.
 
 ![Create Git Branch from Jira](doc/resources/jira-create-branch.png)
 
-By default, Bitbucket will add the Jira issue number to the branch name. If I can get this branch name into my window title, WiseTime will be able to automatically tag the time I spend in Visual Studio Code with the right issue. This is exactly what the Branch in Window Title extension allows me to do.
+By default, Bitbucket will add the Jira issue number to the branch name. If I can get this branch name into my window title, WiseTime will be able to automatically tag the time I spend in IDE with the right issue. This is exactly what the Branch in Window Title extension allows me to do.
 
 I checkout the branch and open the project in IntelliJ IDEA. While I work in my IDE, my activity starts showing up in my [private](https://wisetime.com/privacy-by-design/) timeline in the WiseTime console, tagged with the Jira issue number.
 

@@ -2,7 +2,6 @@ package io.wisetime.idea.branch;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.wm.impl.PlatformFrameTitleBuilder;
-import io.wisetime.idea.branch.settings.SettingsState;
 import java.util.Optional;
 import org.jetbrains.annotations.NotNull;
 
