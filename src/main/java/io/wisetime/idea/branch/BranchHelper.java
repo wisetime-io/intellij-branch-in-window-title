@@ -29,9 +29,13 @@ public final class BranchHelper {
   }
 
   private void updateFrameTitle() {
-    final String projectTitle = FrameTitleBuilder.getInstance().getProjectTitle(project);
-    updateProjectTitle(projectTitle);
-    updateWindowTitle(projectTitle);
+    try {
+      final String projectTitle = FrameTitleBuilder.getInstance().getProjectTitle(project);
+      updateProjectTitle(projectTitle);
+      updateWindowTitle(projectTitle);
+    } catch (Exception e) {
+      logger.error("error while updating title", e);
+    }
   }
 
   private void updateWindowTitle(String projectTitle) {
