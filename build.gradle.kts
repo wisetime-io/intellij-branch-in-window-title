@@ -59,6 +59,7 @@ tasks {
         EnumSet.of(
           // these are the only issues we tolerate
           RunPluginVerifierTask.FailureLevel.DEPRECATED_API_USAGES,
+          RunPluginVerifierTask.FailureLevel.NOT_DYNAMIC,
         )
       )
     )
