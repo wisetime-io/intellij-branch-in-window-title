@@ -1,15 +1,16 @@
 import org.jetbrains.intellij.tasks.RunPluginVerifierTask
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import java.util.EnumSet
 
 plugins {
   java
-  idea
-  id("org.jetbrains.intellij") version "1.13.3"
+  kotlin("jvm") version "1.9.23"
+  id("org.jetbrains.intellij") version "1.17.2"
 }
 
 group = "org.jetbrains"
 
-version = "1.1.0"
+version = "2.0.0"
 
 repositories {
   mavenCentral()
@@ -18,6 +19,10 @@ repositories {
 java {
   sourceCompatibility = JavaVersion.VERSION_11
   targetCompatibility = JavaVersion.VERSION_11
+}
+
+kotlin {
+  compilerOptions.jvmTarget.set(JvmTarget.JVM_11)
 }
 
 dependencies {
@@ -48,20 +53,21 @@ tasks {
 
   runPluginVerifier {
     // Test oldest supported, and latest
-    ideVersions.set(listOf("IC-2021.2.3", "IC-2023.2.2"))
+    ideVersions.set(listOf("IC-2021.2.3", "IC-2024.1"))
     failureLevel.set(
       EnumSet.complementOf(
         EnumSet.of(
           // these are the only issues we tolerate
           RunPluginVerifierTask.FailureLevel.DEPRECATED_API_USAGES,
+          RunPluginVerifierTask.FailureLevel.NOT_DYNAMIC,
         )
       )
     )
   }
 
   patchPluginXml {
-    sinceBuild.set("${project.properties["pluginSinceBuild"]}")
-    version.set("${project.properties["pluginVersion"]}")
+    version.set("${project.version}")
+    sinceBuild.set("212")
   }
 }
 

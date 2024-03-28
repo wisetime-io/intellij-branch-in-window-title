@@ -1,16 +1,16 @@
 <idea-plugin>
     <id>io.wisetime.plugins.window.branch</id>
     <name>Branch in Window Title</name>
-    <version>1.1.0</version>
-    <vendor>WiseTime</vendor>
+    <vendor url="https://github.com/wisetime-io/intellij-branch-in-window-title">WiseTime</vendor>
 
     <description><![CDATA[
-      If a git repository is detected in the parent directory of a module, the current branch name is appended to the
-      project name in the window title. If no git repository is present, the default behaviour / project name is used.
+      If a version control repository is detected in the module, the current branch name is appended to the
+      project name in the window title. If no version control repository is present, the default behaviour / project name is used.
       This can be used to automate time allocation to ticketing systems via window managers such as WiseTime.
     ]]></description>
 
     <change-notes><![CDATA[
+      Version 2.0.0 - Reimplement title augmenter using TitleInfoProvider<br>
       Version 1.1.0 - Support for IDEA 2023.3<br>
       Version 1.0.0 - Support for custom frame decoration on Windows<br>
       Version 0.6.1 - Support IntelliJ IDEA 2020.1<br>
@@ -23,18 +23,13 @@
     ]]>
     </change-notes>
 
-    <!-- 212 = 2021.2.3 -->
-    <idea-version since-build="212"/>
-
-    <depends>com.intellij.modules.lang</depends>
+    <depends>com.intellij.modules.platform</depends>
     <depends optional="true" config-file="git-extension.xml">Git4Idea</depends>
     <depends optional="true" config-file="subversion-extension.xml">Subversion</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceInterface="com.intellij.openapi.wm.impl.FrameTitleBuilder"
-          serviceImplementation="io.wisetime.idea.branch.WisetimeFrameTitleManager" overrides="true" />
 
-        <projectService serviceImplementation="io.wisetime.idea.branch.BranchHelper" />
+        <titleInfoProvider implementation="io.wisetime.idea.branch.BranchTitleInfoProvider"/>
     </extensions>
 
 </idea-plugin>
